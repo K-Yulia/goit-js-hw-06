@@ -1,11 +1,17 @@
 const formEl = document.querySelector("input");
 formEl.addEventListener("blur", checkUserSumbol);
 function checkUserSumbol() {
+  function addCl(cls) {
+    formEl.classList.add(cls);
+  }
+  function removeCl(cls) {
+    formEl.classList.remove(cls);
+  }
   if (Number(formEl.dataset.length) === formEl.value.length) {
-    formEl.classList.add("valid");
-    formEl.classList.remove("invalid");
+    addCl("valid");
+    removeCl("invalid");
   } else {
-    formEl.classList.remove("valid");
-    formEl.classList.add("invalid");
+    addCl("invalid");
+    removeCl("valid");
   }
 }
